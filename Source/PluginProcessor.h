@@ -58,6 +58,9 @@ public:
     void setBypass(bool status) {
       bypass = status;
     }
+    void setTreshold(float valueDB) {
+      threshold_dB = valueDB;
+    }
 
 private:
 

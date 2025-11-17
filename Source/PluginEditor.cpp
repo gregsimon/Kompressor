@@ -14,7 +14,24 @@ KompressorAudioProcessorEditor::KompressorAudioProcessorEditor (KompressorAudioP
     : AudioProcessorEditor (&p), audioProcessor (p)
 {
   
-  // NATE : This is the button callback
+  // Threashold knob + label setup
+  thresholdSlider.setSliderStyle (juce::Slider::RotaryHorizontalVerticalDrag);
+  thresholdSlider.setTextBoxStyle (juce::Slider::TextBoxBelow, true, 50, 20); // Show value below knob
+  thresholdSlider.setRange (-60.0, 0.0, 0.1); // -60 dB to 0 dB, steps of 0.1
+  addAndMakeVisible (thresholdSlider);
+  thresholdSlider.onValueChange = [this]
+  {
+    // Retrieve the current value from the slider
+    float currentValue = (float) thresholdSlider.getValue();
+    audioProcessor.setTreshold(currentValue);
+  };
+  
+  // Configure the Threshold Label
+  thresholdLabel.setText ("Threshold (dB)", juce::dontSendNotification);
+  thresholdLabel.attachToComponent (&thresholdSlider, false);
+  addAndMakeVisible (thresholdLabel);
+  
+  // Bypass button setup
   bypassButton.onClick = [this] {
     bool isBypassed = bypassButton.getToggleState();
     
@@ -70,5 +87,12 @@ void KompressorAudioProcessorEditor::resized()
         getHeight() / 2 - 15,
         100,
         30
+    );
+  
+  thresholdSlider.setBounds (
+          10, //  X position
+          getHeight() / 2 - 80, // Position above the bypass button
+          100, // Width
+          100 // Height (Makes it a square area for the knob and text box)
     );
 }

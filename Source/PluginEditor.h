@@ -30,6 +30,8 @@ private:
     KompressorAudioProcessor& audioProcessor;
   
     juce::TextButton bypassButton { "Bypass" };
+    juce::Slider thresholdSlider;
+    juce::Label thresholdLabel;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (KompressorAudioProcessorEditor)
 };
