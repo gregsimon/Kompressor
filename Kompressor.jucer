@@ -2,7 +2,8 @@
 
 <JUCERPROJECT id="XPDoOL" name="Kompressor" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" pluginManufacturer="Nate Simon"
-              pluginManufacturerCode="PRNS">
+              pluginManufacturerCode="PRNS" pluginVST3Category="Dynamics" pluginAAXCategory="2"
+              companyEmail="natesimon07@gmail.com" companyName="Pixel Rocket">
   <MAINGROUP id="D9ijmH" name="Kompressor">
     <GROUP id="{2E11CEFE-9EA9-2D65-CE9C-8440A2018031}" name="Source">
       <FILE id="GJkwvQ" name="PluginProcessor.cpp" compile="1" resource="0"
