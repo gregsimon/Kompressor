@@ -132,6 +132,9 @@ void KompressorAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, j
     // this code if your algorithm always overwrites all the output channels.
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
+  
+    if (bypass)
+      return; // no need to process anything.
     
     // NATE: Here we take the input parameters (in the .h file) and
     // compute some intermediate values we need to process the samples.

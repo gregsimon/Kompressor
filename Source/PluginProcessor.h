@@ -57,13 +57,15 @@ public:
 
 private:
 
-  // Compression parameters -
-  // NATE : we would want to create UI to adjust these probably?
-  float threshold_dB = -18.0f; // Typical value for guitar
-  float ratio = 4.0f;          // 4:1 ratio
-  float makeup_gain_dB = 6.0f; // 6 dB of make-up
-  float envelope_level = 0.0f; // L[n-1], stored state
-  
+    // Compression parameters -
+    // NATE : we would want to create UI to adjust these probably?
+    float threshold_dB = -18.0f; // Typical value for guitar
+    float ratio = 4.0f;          // 4:1 ratio
+    float makeup_gain_dB = 6.0f; // 6 dB of make-up
+    float envelope_level = 0.0f; // L[n-1], stored state
+    
+    bool bypass = false;  // pass audio through without processing.
+    
   
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (KompressorAudioProcessor)
