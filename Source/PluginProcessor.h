@@ -54,6 +54,10 @@ public:
     // NATE: these methods will load and store the plugin-state from the DAW. 
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
+  
+    void setBypass(bool status) {
+      bypass = status;
+    }
 
 private:
 
